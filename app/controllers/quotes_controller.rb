@@ -6,7 +6,6 @@ class QuotesController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -33,7 +32,7 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.destroy
-    redirect_to quotes_path, notice "Quote was successfully delete"
+    redirect_to quotes_path, notice: "Quote was successfully delete"
   end
 
   private
