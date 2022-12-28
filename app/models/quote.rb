@@ -12,3 +12,5 @@ class Quote < ApplicationRecord
                                              target: "quotes"
                       }
 end
+
+# broadcast_prepend_to(*streamables, target: broadcast_target_default, **rendering)
