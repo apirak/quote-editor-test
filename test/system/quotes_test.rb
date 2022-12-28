@@ -1,9 +1,7 @@
 require "application_system_test_case"
 
 class QuotesTest < ApplicationSystemTestCase
-  setup do
-    @quote = quotes(:first)
-  end
+  setup { @quote = Quote.ordered.first }
 
   test "Show a quote" do
     visit quotes_path
@@ -17,18 +15,18 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Quotes"
 
     click_on "New quote"
-    assert_selector "h1", text: "New quote"
-
     fill_in "Name", with: "Capybara quote"
+
+    assert_selector "h1", text: "Quotes"
     click_on "Create quote"
 
-    assert_selector "h1",  text: "Quotes"
+    assert_selector "h1", text: "Quotes"
     assert_text "Capybara quote"
   end
 
   test "Update a quote" do
     visit quotes_path
-    assert_selector "h1", test: "Quotes"
+    assert_selector "h1", text: "Quotes"
 
     click_on "Edit", match: :first
     fill_in "Name", with: "Update quote"

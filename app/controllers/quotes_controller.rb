@@ -1,8 +1,8 @@
 class QuotesController < ApplicationController
-  before_action :set_quote, only: [:show, :edit, :update, :destroy]
+  before_action :set_quote, only: %i[show edit update destroy]
 
   def index
-    @quotes = Quote.all
+    @quotes = Quote.ordered
   end
 
   def show
@@ -17,7 +17,9 @@ class QuotesController < ApplicationController
 
     if @quote.save
       respond_to do |format|
-        format.html { redirect_to quotes_path, notice: "Quote was successfully created" }
+        format.html do
+          redirect_to quotes_path, notice: "Quote was successfully created"
+        end
         format.turbo_stream
       end
     else
@@ -37,7 +39,9 @@ class QuotesController < ApplicationController
     @quote.destroy
 
     respond_to do |format|
-      format.html {redirect_to quotes_path, notice: "Quote was successfully delete"}
+      format.html do
+        redirect_to quotes_path, notice: "Quote was successfully delete"
+      end
       format.turbo_stream
     end
   end
