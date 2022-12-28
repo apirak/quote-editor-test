@@ -64,6 +64,16 @@ group :development do
 
   gem "rails_live_reload"
 
+  gem "prettier"
+  gem "prettier_print"
+  gem "syntax_tree"
+  gem "syntax_tree-haml"
+  gem "syntax_tree-rbs"
+  gem "htmlbeautifier"
+  gem "rubocop"
+  gem "sorbet"
+  gem "sorbet-runtime"
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
